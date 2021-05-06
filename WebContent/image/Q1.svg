@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="232.687" height="32" viewBox="0 0 232.687 32">
+    <defs>
+        <style>
+            .cls-1,.cls-3{opacity:.5}.cls-2,.cls-3{fill:#474747}
+        </style>
+    </defs>
+    <g id="그룹_386" transform="translate(-66 -529)">
+        <g id="그룹_1" class="cls-1" transform="translate(-97 86)">
+            <path id="사각형_25" d="M0 0H24V4H0z" class="cls-2" transform="translate(189 457)"/>
+            <path id="사각형_26" d="M193 443l8 16-8 16h-4l8-16-8-16z" class="cls-2"/>
+            <path id="사각형_27" d="M183 451l4 8-4 8h-4l4-8-4-8z" class="cls-2"/>
+        </g>
+        <g id="그룹_2" class="cls-1" transform="translate(58.687 82.657)">
+            <path id="사각형_25-2" d="M0 0l7.852-.148-.3 15.7L-.3 15.7z" class="cls-2" transform="rotate(-45 664.112 -32.77)"/>
+            <path id="사각형_25-3" d="M0 0l15.7-.3-.148 7.852-15.7.3z" class="cls-2" transform="rotate(-45 673.77 -36.77)"/>
+        </g>
+        <circle id="타원_7" cx="4" cy="4" r="4" class="cls-3" transform="translate(66 541)"/>
+        <circle id="타원_12" cx="2" cy="2" r="2" class="cls-3" transform="translate(164 543)"/>
+        <circle id="타원_15" cx="2" cy="2" r="2" class="cls-3" transform="translate(224 543)"/>
+        <circle id="타원_8" cx="2" cy="2" r="2" class="cls-3" transform="translate(124 543)"/>
+        <circle id="타원_10" cx="2" cy="2" r="2" class="cls-3" transform="translate(184 543)"/>
+        <circle id="타원_14" cx="2" cy="2" r="2" class="cls-3" transform="translate(244 543)"/>
+        <circle id="타원_9" cx="2" cy="2" r="2" class="cls-3" transform="translate(144 543)"/>
+        <circle id="타원_11" cx="2" cy="2" r="2" class="cls-3" transform="translate(204 543)"/>
+        <circle id="타원_13" cx="2" cy="2" r="2" class="cls-3" transform="translate(264 543)"/>
+    </g>
+</svg>
