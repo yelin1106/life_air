@@ -66,43 +66,69 @@
 	}
 	
 </style>
+
+<!-- Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+function toNextPage(type){
+	selects = document.getElementsByClassName('selected')
+	var nums = new Array();
+	for (selectbox of selects){
+		nums.push(selectbox.getAttribute('name'));
+	}//end for
+	$.ajax({
+		url:"setnumbers.do?nums="+type,
+		type:"POST",
+		data : { "nums" : nums },
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(result){
+			location.href='Q05.do';
+		}//success
+	});//ajax
+}//toNextPage
+
+var maxChecked = 4;   //선택가능한 체크박스 갯수
+
+var totalChecked = 0; // 설정 끝
+
+function CountChecked(target_id, value) {
+	target = document.getElementById(target_id)
+	target.classList.toggle("selected"); 
+	class_list = target.classList.value
+	
+	if(class_list.includes('selected')){
+		totalChecked += 1;
+	} else {
+		totalChecked -= 1;
+	}
+
+	if(totalChecked == maxChecked){
+		toNextPage();
+	}
+}
+/* 	var checkNumbers = "";
+	
+	function go_url(){
+		selects = document.getElementsByClassName('selected');
+
+		for (selectbox of selects){
+			checkNumbers += selectbox.getAttribute('name');
+		}
+
+		document.cookie = "passenger_no="+checkNumbers;
+		location.href="Q05.do";
+	} */
+	
+</script>
 </head>
 
 <body>
-	<script language="javascript">
-		var maxChecked = 4;   //선택가능한 체크박스 갯수
-	
-		var totalChecked = 0; // 설정 끝
-	
-		function CountChecked(target_id, value) {
-			target = document.getElementById(target_id)
-			target.classList.toggle("selected"); 
-			class_list = target.classList.value
-			
-			if(class_list.includes('selected')){
-				totalChecked += 1;
-			} else {
-				totalChecked -= 1;
-			}
-
-			if(totalChecked == maxChecked){
-				go_url();
-			}
-		}
-		var checkNumbers = "";
-		
-		function go_url(){
-			selects = document.getElementsByClassName('selected');
-
-			for (selectbox of selects){
-				checkNumbers += selectbox.getAttribute('name');
-			}
-
-			document.cookie = "passenger_no="+checkNumbers;
-			location.href="Q05.do";
-		}
-		
-	</script>
 	<div id = "main">
 		<img src = "image/뒤로가기.svg" id = "backpage" onClick="location.href = 'Q03.do'">
 		
@@ -113,9 +139,6 @@
 		<div id ="contentdiv"><label id = "content">좋아하는 숫자를<br>4개 골라주세요</label></div>
 		
 		<div id = "one" name="1" class = "selectbox" onclick="CountChecked('one', 1)"><label class = "selectlabel">1</label></div>
-		<!--선택 시 
-			<div id = "one" class = "selectbox selected"><label class = "selectlabel selectedlabel">1</label></div>
-		-->
 		<div id = "two" name='2' class = "selectbox" onclick="CountChecked('two', 2)"><label class = "selectlabel">2</label></div>
 		<div id = "three" name='3' class = "selectbox" onclick="CountChecked('three', 3)"><label class = "selectlabel">3</label></div>
 		<div id = "four" name='4' class = "selectbox" onclick="CountChecked('four', 4)"><label class = "selectlabel">4</label></div>

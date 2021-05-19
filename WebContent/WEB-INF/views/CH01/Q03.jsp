@@ -69,6 +69,49 @@
 		#Q03{width: 331.8px;height: 45.7px; top:456.9px; left:218.4px; padding-bottom: 84.1px;}
 	}
 </style>
+
+<!-- Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+/* $(function(){
+	alert("${ sessionScope.name }")
+	alert("${ sessionScope.gender }")
+});//ready */
+
+function toNextPage(type){
+	$.ajax({
+		url:"setstar.do?star="+type,
+		type:"POST",
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(result){
+			location.href='Q04.do';
+		}//success
+	});//ajax
+}//toNextPage
+
+function select(type){
+	div=type
+	label=type+"_label"
+	document.getElementById(div).className="selectbox selected"
+	document.getElementById(label).className="selectlabel selectedlabel"
+	
+	$("#star1").removeAttr("onclick");
+	$("#star2").removeAttr("onclick");
+	$("#star3").removeAttr("onclick");
+	$("#star4").removeAttr("onclick");
+	$("#star5").removeAttr("onclick");
+	$("#star6").removeAttr("onclick");
+	
+	setTimeout("toNextPage('"+type+"')", 1000);
+
+}//select
+
+</script>
 </head>
 
 <body>
@@ -81,15 +124,12 @@
 		
 		<div id ="contentdiv"><label id = "content">당신은 어디에서 왔나요?</label></div>
 		
-		<div id = "star1" class = "selectbox"><label class = "selectlabel">어제보다 내일 더 빛나는 별, 멘칼리난</label></div>
-		<!--선택 시 
-			<div id = "star1" class = "selectbox selected"><label class = "selectlabel selectedlabel">어제보다 내일 더 빛나는 별, 멘칼리난</label></div>
-		-->
-		<div id = "star2" class = "selectbox"><label class = "selectlabel">가까이서 빛나는 따듯한 별, 프록시마 </label></div>
-		<div id = "star3" class = "selectbox"><label class = "selectlabel">놀라운 균형을 가진 별, 트라피스트</label></div>
-		<div id = "star4" class = "selectbox"><label class = "selectlabel">깊고 짙은 어둠에 잠긴 별, 알비레오</label></div>
-		<div id = "star5" class = "selectbox"><label class = "selectlabel">불꽃 같은 아름다움이 있는 별, 바너드</label></div>
-		<div id = "star6" class = "selectbox"><label class = "selectlabel">빛나는 자유로움을 가진 별, 베텔게우스</label></div>
+		<div id = "star1" class = "selectbox" onclick="select('star1')"><label id="star1_label" class = "selectlabel">어제보다 내일 더 빛나는 별, 멘칼리난</label></div>
+		<div id = "star2" class = "selectbox" onclick="select('star2')"><label id="star2_label" class = "selectlabel">가까이서 빛나는 따듯한 별, 프록시마 </label></div>
+		<div id = "star3" class = "selectbox" onclick="select('star3')"><label id="star3_label" class = "selectlabel">놀라운 균형을 가진 별, 트라피스트</label></div>
+		<div id = "star4" class = "selectbox" onclick="select('star4')"><label id="star4_label" class = "selectlabel">깊고 짙은 어둠에 잠긴 별, 알비레오</label></div>
+		<div id = "star5" class = "selectbox" onclick="select('star5')"><label id="star5_label" class = "selectlabel">불꽃 같은 아름다움이 있는 별, 바너드</label></div>
+		<div id = "star6" class = "selectbox" onclick="select('star6')"><label id="star6_label" class = "selectlabel">빛나는 자유로움을 가진 별, 베텔게우스</label></div>
 		
 		<img src = "image/Q3.svg" id = "Q03">
 	</div>

@@ -22,8 +22,8 @@
 	.selectbox{opacity: 0.5;background-color: #ffffff;text-align: center; position: relative;}
 	.selectlabel{font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.42; letter-spacing: -1.2px; text-align: center; color: #474747; position: relative;}
 	
-	/*.selected{opacity: 1; background-color: #474747;text-align: center; position: relative;}
-	.selectedlabel{font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.42; letter-spacing: -1.2px; text-align: center; color: #ffffff; position: relative;}*/
+	.selected{opacity: 1; background-color: #474747;text-align: center; position: relative;}
+	.selectedlabel{font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.42; letter-spacing: -1.2px; text-align: center; color: #ffffff; position: relative;}
 	
 	#Q02{position: relative;}
 	
@@ -64,6 +64,51 @@
 		#Q02{width: 331.8px;height: 45.7px; top:422.4px; left:218.4px; padding-bottom: 167.9px;}
 	}
 </style>
+
+<!-- Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+/* $(function(){
+	alert("${ sessionScope.name }")
+});//ready */
+
+function toNextPage(type){
+	$.ajax({
+		url:"setgender.do?gender="+type,
+		type:"POST",
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(result){
+			location.href='Q03.do';
+		}//success
+	});//ajax
+}//toNextPage
+
+function select(type){
+	div=type
+	label=type+"_label"
+	document.getElementById(div).className="selectbox selected"
+	document.getElementById(label).className="selectlabel selectedlabel"
+	if(type=="woman"){
+		$("#man").removeAttr("onclick");
+		$("#etc").removeAttr("onclick");
+	}else if(type=="man"){
+		$("#woman").removeAttr("onclick");
+		$("#etc").removeAttr("onclick");
+	}else{
+		$("#woman").removeAttr("onclick");
+		$("#man").removeAttr("onclick");
+	}//end else
+	
+	setTimeout("toNextPage('"+type+"')", 1000);
+
+}//select
+
+</script>
 </head>
 
 <body>
@@ -76,12 +121,12 @@
 		
 		<div id ="contentdiv"><label id = "content">당신의 성별은 무엇인가요?</label></div>
 		
-		<div id = "woman" class = "selectbox"><label class = "selectlabel">여성</label></div>
+		<div id = "woman" class = "selectbox" onclick="select('woman')"><label id="woman_label" class = "selectlabel">여성</label></div>
 		<!--선택 시 
 			<div id = "woman" class = "selectbox selected"><label class = "selectlabel selectedlabel">여성</label></div>
 		-->
-		<div id = "man" class = "selectbox"><label class = "selectlabel">남성</label></div>
-		<div id = "etc" class = "selectbox"><label class = "selectlabel">기타/인터섹스</label></div>
+		<div id = "man" class = "selectbox" onclick="select('man')"><label id="man_label" class = "selectlabel">남성</label></div>
+		<div id = "etc" class = "selectbox" onclick="select('etc')"><label id="etc_label" class = "selectlabel">기타/인터섹스</label></div>
 		
 		<img src = "image/Q2.svg" id = "Q02">
 	</div>

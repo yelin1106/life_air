@@ -1,4 +1,4 @@
-package air.life;
+package air.life.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +12,12 @@ public class CH00Controller {
 		
 		return "CH00/CH00";
 	}//viewCH00
+	
+	@RequestMapping(value="Loading.do", method=RequestMethod.GET)
+	public String viewLoading() {
+		
+		return "CH00/Loading";
+	}//viewLoading
 	
 	@RequestMapping(value="Loading_Last.do", method=RequestMethod.GET)
 	public String viewLoading_Last() {

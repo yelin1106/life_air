@@ -49,7 +49,7 @@
 			<label id = "start">Start</label>
 		</div>
 		<div id ="partnerdiv"><label id = "partner">그 언젠가, 당신과 함께할<br>동반자는 누구일까요?</label></div>
-		<img src = "image/plane.svg" id = "footplane" onClick="location.href = 'Loading_Last.do'">
+		<img src = "image/plane.svg" id = "footplane" onClick="location.href = 'Loading.do'">
 
 	</div>
 </body>

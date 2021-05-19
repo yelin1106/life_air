@@ -5,7 +5,6 @@
 <!-- 클릭시 변환하는 색에 대해서는(Q01_type) 주석으로 처리하였습니다-->
 <html>
 <head>
-	<script src="MBTI_LAB.js"></script>
 <meta charset="UTF-8">
 <title>LifeAir</title>
 <style>
@@ -20,20 +19,20 @@
 	#contentdiv{text-align: center; position: relative;}
 	#content{font-family:'Noto Sans CJK KR'; font-weight: bold; font-stretch: normal; font-style: normal; color: #474747; line-height: 1.43;}
 	
-	#inputnamediv{background-color: #ffffff; opacity: 0.5; position: relative; display: table; text-align: left;}
-	/*#inputnamediv{background-color: #474747; position: relative; display: table; text-align: left;}*/
-	#name{position: relative; font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747; border: none; outline: none; background-color: transparent;}
-	/*#name{position: relative; font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ffffff; border: none; outline: none; background-color: transparent;}*/
-	#name::placeholder{font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747;}
-	#x_btn{position: relative;}
-	/*#name::placeholder{font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ffffff;}
-	#x_btn{position: relative;}*/
-	#randomname{position: relative; font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747; border: none; outline: none; background-color: transparent;}
-	/*#randomname{position: relative; font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ececf0; border: none; outline: none; background-color: transparent;}*/
+	.inputnamediv{background-color: #ffffff; opacity: 0.5; position: relative; display: table; text-align: left;}
+	.inputnamediv_selected{background-color: #474747; position: relative; display: table; text-align: left;}
+	.name{position: relative; font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747; border: none; outline: none; background-color: transparent;}
+	.name_selected{position: relative; font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ffffff; border: none; outline: none; background-color: transparent;}
+	.name::placeholder{font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747;}
+	.x_btn{position: relative;}
+	.name_selected::placeholder{font-family: 'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ffffff;}
+	.x_btn_selected{position: relative;}
+	.randomname{position: relative; font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #474747; border: none; outline: none; background-color: transparent;}
+	.randomname_selected{position: relative; font-family:'Noto Sans CJK KR'; font-weight: 500; font-stretch: normal; font-style: normal; text-align: left; color: #ececf0; border: none; outline: none; background-color: transparent;}
 	#announcediv{font-family: 'Noto Sans CJK KR';font-weight: 300;font-stretch: normal;font-style: normal;line-height: 1.63;letter-spacing: -0.8px;text-align: center;color: #707070; position: relative;}
 	
-	#Q01{position: relative;}
-	/*#footerplane{position: relative;}*/
+	.Q01{position: relative;}
+	.footerplane{position: relative;}
  
 	@media all and (min-width: 360px) and (max-width: 768px) { /*모바일 */
 		#main{width:360px; height: 640px;}
@@ -50,8 +49,8 @@
 		#randomname{font-size: 16px; line-height: 2.13; letter-spacing: -0.8px; top: 7px; left:38px;}
 		#announcediv{font-size: 16px; top:176px; left:62px;}
 		
-		#Q01{width: 232.7px;height: 32px; top:328px; left:64px; padding-bottom: 79px;}
-		/*#footerplane{width: 52px;height: 52px; top:321px; left: -90px;}*/
+		.Q01{width: 232.7px;height: 32px; top:328px; left:64px; padding-bottom: 79px;}
+		.footerplane{width: 52px;height: 52px; top:321px; left: -90px;}
 	}
 	
 	@media all and (min-width: 768px) { /*태블릿 */
@@ -69,11 +68,91 @@
 		#randomname{font-size: 22px; line-height: 2.13; letter-spacing: -0.8px; top: 10px; left:48px;}
 		#announcediv{font-size: 22px; top:340px; left:216px;}
 		/*#announcediv{font-size: 22px; top:235px; left:216px;}*/
-		#Q01{width: 332.6px; height: 45.7px; top:810px; left:-132px; padding-bottom: 79px;}
-		/*#footerplane{width: 52px;height: 52px; top:800px; left: 20px; padding-bottom: 149px;}*/
+		.Q01{width: 332.6px; height: 45.7px; top:810px; left:-132px; padding-bottom: 79px;}
+		.footerplane{width: 52px;height: 52px; top:800px; left: 20px; padding-bottom: 149px;}
 	}
 
 </style>
+
+<!-- Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+function setDivClass(flag){
+	if(flag=='focus'){
+		document.getElementById('x_btn').src="image/엑스_화이트.svg";
+		document.getElementById('inputnamediv').className='inputnamediv_selected';
+		document.getElementById('randomname').className='randomname_selected';
+		document.getElementById('name').className='name_selected';
+		document.getElementById('x_btn').className='x_btn_selected';
+	}else{
+		document.getElementById('x_btn').src="image/엑스.svg";
+		document.getElementById('inputnamediv').className='inputnamediv';
+		document.getElementById('randomname').className='randomname';
+		document.getElementById('name').className='name';
+		document.getElementById('x_btn').className='x_btn';
+	}//end else
+}//end setDivClass
+
+
+function checkNameLength(){
+	name=document.getElementById("name").value;
+	if(name.trim().length>5){
+		alert("최대 5글자까지 입력할 수 있습니다.")
+	}else if(name.trim().length==0) {
+		document.getElementById('Q01').src="image/Q1.svg";
+		document.getElementById('Q01').className="Q01";
+		$("#Q01").removeAttr("onclick");
+    }else{
+		document.getElementById('Q01').src="image/plane.svg";
+		document.getElementById('Q01').className="footerplane";
+		$("#Q01").attr("onclick",  "toNextPage()");
+    }//end else
+	
+}//checkNameLength
+
+function makeRandomname(){
+	$.ajax({
+		url:"randomname.do",
+		type:"POST",
+		dataType:"JSON",
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(jsonObj){
+	      	if(jsonObj.flag=="success"){
+	      		document.getElementById("name").value=jsonObj.randomName;
+	      		checkNameLength();
+	      	}else{
+	      		alert("문제가 발생하였습니다. 다시 시도해주세요.")
+	      	}//end else
+		}//success
+	});//ajax
+}//makeRandomname
+
+function toNextPage(){
+	name=document.getElementById("name").value;
+	$.ajax({
+		url:"setname.do?name="+name,
+		type:"POST",
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(result){
+	      	location.href="Q02.do";
+		}//success
+	});//ajax
+}//toNextPage
+
+function removeName(){
+	document.getElementById("name").value="";
+}//removeName
+
+</script>
 </head>
 
 <body>
@@ -86,21 +165,21 @@
 		
 		<div id ="contentdiv"><label id = "content">당신의 이름을<br>알려주세요</label></div>
 		
-		<div id = "inputnamediv" >
-			<input type = "text" maxlength="5" id = "name" placeholder = "이름" 
+		<div id = "inputnamediv" class="inputnamediv">
+		<!-- <form id="inputnamediv" class="inputnamediv" action="Q02.do" method="post"> -->
+			<input type = "text" maxlength="5" name="name" id = "name" class="name" placeholder = "이름" 
 				oninput="checkNameLength()"
-				onfocus="console.log('onfocus')"
-				onblur="console.log('onblur')"
+				onfocus="setDivClass('focus')"
+				onblur="setDivClass('blur')"
 			>
-			<img src = "image/엑스.svg" id = "x_btn">
-			<!--<img src = "image/엑스_화이트.svg" id = "x_btn">-->
-			<button id = "randomname">가명부여</button>
+			<img src = "image/엑스.svg" id = "x_btn" class="x_btn" onclick="removeName()">
+			<button id = "randomname" class="randomname" onclick="makeRandomname()">가명부여</button>
+		<!-- </form> -->
 		</div>
 		
 		<label id = "announcediv">※ 최대 5글자까지 입력할 수 있습니다.</label>
 		
-		<img src = "image/Q1.svg" id = "Q01">
-		<!--<img src = "image/plane.svg" id = "footerplane" onClick = "location.href = 'Q02.html'">-->
+		<img src = "image/Q1.svg" id = "Q01" class="Q01">
 		
 	</div>
 </body>

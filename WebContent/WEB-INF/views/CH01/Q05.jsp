@@ -65,6 +65,56 @@
 		#Q05{width: 331.8px; height: 45.7px; top:650px; left:-50px; padding-bottom: 104.1px;}
 	}
 </style>
+<!-- Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+/* $(function(){
+	alert("${ sessionScope.star }")
+	<c:forEach var="tmp" items="${ sessionScope.nums }">
+		alert("${ tmp }")
+	</c:forEach>
+});//ready */
+
+
+function toNextPage(type){
+	$.ajax({
+		url:"setcountry.do?country="+type,
+		type:"POST",
+		error:function(xhr){
+			alert("에러");
+			console.log(xhr.status+" / "+xhr.statusText);
+		},
+		success:function(result){
+			location.href='CH02.do';
+		}//success
+	});//ajax
+}//toNextPage
+
+function select(id, type){
+	document.getElementById(id).className="selectbox selected"
+	img="image/날씨_"+type+".svg"
+	document.getElementById(type).src=img;
+	
+	$("#one").removeAttr("onclick");
+	$("#two").removeAttr("onclick");
+	$("#three").removeAttr("onclick");
+	$("#four").removeAttr("onclick");
+	$("#five").removeAttr("onclick");
+	$("#six").removeAttr("onclick");
+	$("#seven").removeAttr("onclick");
+	$("#eight").removeAttr("onclick");
+	$("#nine").removeAttr("onclick");
+	$("#ten").removeAttr("onclick");
+	$("#eleven").removeAttr("onclick");
+	$("#twelve").removeAttr("onclick");
+	
+	setTimeout("toNextPage('"+type+"')", 1000);
+
+}//select
+
+</script>
 </head>
 
 <body>
@@ -77,29 +127,29 @@
 		
 		<div id ="contentdiv"><label id = "content">어떤 풍경을 좋아하세요?</label></div>
 		
-		<div id = "one" class = "selectbox"><img src = "image/날씨_영국_화이트.svg" class = "weatherimg"></div>
+		<div id = "one" class = "selectbox" onclick="select('one', '영국')"><img id="영국" src = "image/날씨_영국_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "one" class = "selectbox selected"><img src = "image/날씨_영국.svg" class = "weatherimg"></div>-->
-		<div id = "two" class = "selectbox"><img src = "image/날씨_멕시코_화이트.svg" class = "weatherimg"></div>
+		<div id = "two" class = "selectbox" onclick="select('two', '멕시코')"><img id="멕시코" src = "image/날씨_멕시코_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "two" class = "selectbox selected"><img src = "image/날씨_멕시코.svg" class = "weatherimg"></div>-->
-		<div id = "three" class = "selectbox"><img src = "image/날씨_인도_화이트.svg" class = "weatherimg"></div>
+		<div id = "three" class = "selectbox" onclick="select('three', '인도')"><img id="인도" src = "image/날씨_인도_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "three" class = "selectbox selected"><img src = "image/날씨_인도.svg" class = "weatherimg"></div>-->
-		<div id = "four" class = "selectbox"><img src = "image/날씨_네덜란드_화이트.svg" class = "weatherimg"></div>
+		<div id = "four" class = "selectbox" onclick="select('four', '네덜란드')"><img id="네덜란드" src = "image/날씨_네덜란드_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "four" class = "selectbox selected"><img src = "image/날씨_네덜란드.svg" class = "weatherimg"></div>-->
-		<div id = "five" class = "selectbox"><img src = "image/날씨_대한민국_화이트.svg" class = "weatherimg"></div>
+		<div id = "five" class = "selectbox" onclick="select('five', '대한민국')"><img id="대한민국" src = "image/날씨_대한민국_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "five" class = "selectbox selected"><img src = "image/날씨_대한민국.svg" class = "weatherimg"></div>-->
-		<div id = "six" class = "selectbox"><img src = "image/날씨_미국_화이트.svg" class = "weatherimg"></div>
+		<div id = "six" class = "selectbox" onclick="select('six', '미국')"><img id="미국" src = "image/날씨_미국_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "six" class = "selectbox selected"><img src = "image/날씨_미국.svg" class = "weatherimg"></div>-->
-		<div id = "seven" class = "selectbox"><img src = "image/날씨_몽골_화이트.svg" class = "weatherimg"></div>
+		<div id = "seven" class = "selectbox" onclick="select('seven', '몽골')"><img id="몽골" src = "image/날씨_몽골_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "seven" class = "selectbox selected"><img src = "image/날씨_몽골.svg" class = "weatherimg"></div>-->
-		<div id = "eight" class = "selectbox"><img src = "image/날씨_알래스카_화이트.svg" class = "weatherimg"></div>
+		<div id = "eight" class = "selectbox" onclick="select('eight', '알래스카')"><img id="알래스카" src = "image/날씨_알래스카_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "eight" class = "selectbox selected"><img src = "image/날씨_알래스카.svg" class = "weatherimg"></div>-->
-		<div id = "nine" class = "selectbox"><img src = "image/날씨_핀란드_화이트.svg" class = "weatherimg"></div>
+		<div id = "nine" class = "selectbox" onclick="select('nine', '핀란드')"><img id="핀란드" src = "image/날씨_핀란드_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "nine" class = "selectbox selected"><img src = "image/날씨_핀란드.svg" class = "weatherimg"></div>-->
-		<div id = "ten" class = "selectbox"><img src = "image/날씨_몰디브_화이트.svg" class = "weatherimg"></div>
+		<div id = "ten" class = "selectbox" onclick="select('ten', '몰디브')"><img id="몰디브" src = "image/날씨_몰디브_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "ten" class = "selectbox selected"><img src = "image/날씨_몰디브.svg" class = "weatherimg"></div>-->
-		<div id = "eleven" class = "selectbox"><img src = "image/날씨_호주_화이트.svg" class = "weatherimg"></div>
+		<div id = "eleven" class = "selectbox" onclick="select('eleven', '호주')"><img id="호주" src = "image/날씨_호주_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "eleven" class = "selectbox selected"><img src = "image/날씨_호주.svg" class = "weatherimg"></div>-->
-		<div id = "twelve" class = "selectbox"><img src = "image/날씨_아이슬란드_화이트.svg" class = "weatherimg"></div>
+		<div id = "twelve" class = "selectbox" onclick="select('twelve', '아이슬란드')"><img id="아이슬란드" src = "image/날씨_아이슬란드_화이트.svg" class = "weatherimg"></div>
 		<!--<div id = "twelve" class = "selectbox selected"><img src = "image/날씨_아이슬란드.svg" class = "weatherimg"></div>-->
 		
 		<img src = "image/Q5.svg" id = "Q05">
